@@ -12,7 +12,7 @@
         Correo:
     </div>
     <div class="col col-lg-4">
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Digite su correo">
+        <input [(ngModel)]="correo" type="email" class="form-control" id="exampleInputEmail1" placeholder="Digite su correo">
     </div>
 
 </div>
@@ -22,7 +22,7 @@
 <div class="row">
     <div class="col col-lg-2">Contraseña:</div>
     <div class="col col-lg-4">
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite su contrasena">
+        <input [(ngModel)]="contrasena" type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite su contrasena">
     </div>
 </div>
 
@@ -30,6 +30,6 @@
 
 <div class="row"> 
     <div class="col">
-        <button type="button" class="btn btn-success">Login</button>
+        <button (click)="login()" type="button" class="btn btn-success">Login</button>
     </div>
 </div>
