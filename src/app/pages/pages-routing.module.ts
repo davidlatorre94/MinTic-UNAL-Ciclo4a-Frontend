@@ -17,8 +17,8 @@ const routes: Routes = [{
     },
     {
       path: 'estudiantes',
-      loadChildren: () => import('./estudiantes/estudiantes.module')
-        .then(m => m.EstudiantesModule),
+      loadChildren: () => import('./estudiante/estudiante.module')
+        .then(m => m.EstudianteModule),
     },
     {
       path: 'dashboard',
