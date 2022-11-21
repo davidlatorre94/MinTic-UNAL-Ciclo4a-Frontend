@@ -20,8 +20,13 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     
+    /** 
+     * Aquí preguntarmos si hay una sesión activa, es decir, 
+     * si ya el usuario está logeado.
+     * Con el fin de que si ya está logeado, 
+     * todas las peticiones que realice el usuario le ponemos el token.
+    */
     let infoUsuario = this.miServicioSeguridad.usuarioSesionActiva;
-
     if(this.miServicioSeguridad.usuarioSesionActiva) {
       request = request.clone({
         setHeaders: {
