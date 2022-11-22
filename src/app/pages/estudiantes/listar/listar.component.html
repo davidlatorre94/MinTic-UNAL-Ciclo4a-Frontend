@@ -1,0 +1,17 @@
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th *ngFor="let columnaActual of nombreColumnas" scope="col"> {{columnaActual}} </th>
+      </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let estudiante of listadoEstudiantes">
+            <tr>
+                <td>{{estudiante.cedula}}</td>
+                <td>{{estudiante.nombre}}</td>
+                <td>{{estudiante.apellido}}</td>
+                <td>4</td>
+            </tr>
+        </ng-container>     
+    </tbody>
+  </table>
