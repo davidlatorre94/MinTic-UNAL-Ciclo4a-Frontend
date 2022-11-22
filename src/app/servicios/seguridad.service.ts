@@ -80,7 +80,10 @@ export class SeguridadService {
    */
   validarSesion(): boolean {
     let sesionActual = this.obtenerDatosSesion();
-    return sesionActual != null ? true : false;
+    if (sesionActual) {
+      this.setUsuario(JSON.parse(sesionActual));
+    }
+    return sesionActual ? true : false;
   }
 
   /**
