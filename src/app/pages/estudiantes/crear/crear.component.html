@@ -1,1 +1,39 @@
-<p>crear works!</p>
+<div class="container">
+    
+    <div class="row">
+        <div class="col">
+            <b *ngIf="modoCreacion"> CREAR ESTUDIANTE </b>
+            <b *ngIf="!modoCreacion"> MODIFICAR ESTUDIANTE </b>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">Cedula:</div>
+        <div class="col">
+            <input [disabled]="!modoCreacion" [(ngModel)]="infoEstudiante.cedula" class="form-control" type="text" placeholder="{{infoEstudiante.cedula}}">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">Nombre:</div>
+        <div class="col">
+            <input [(ngModel)]="infoEstudiante.nombre" class="form-control" type="text" placeholder="{{infoEstudiante.nombre}}">
+        </div>
+        
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">Apellido:</div>
+        <div class="col">
+            <input [(ngModel)]="infoEstudiante.apellido" class="form-control" type="text" placeholder="{{infoEstudiante.apellido}}">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <button *ngIf="modoCreacion" type="button" class="btn btn-success">Crear</button>
+            <button (click)="modificarEstudiante()" *ngIf="!modoCreacion" type="button" class="btn btn-warning">Modificar</button>
+        </div>
+    </div>
+
+</div>
