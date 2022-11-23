@@ -1,3 +1,6 @@
+
+<button (click)="crearEstudiante()" type="button" class="btn btn-success btn-sm">Crear Estudiante</button>
+<br>
 <table class="table table-striped">
     <thead>
       <tr>
@@ -11,7 +14,7 @@
           <td>{{estudiante.nombre}}</td>
           <td>{{estudiante.apellido}}</td>
           <td>
-            <button type="button" class="btn btn-primary">
+            <button (click)="actualizarEstudiante(estudiante._id)" type="button" class="btn btn-primary">
                 <i class="fas fa-pencil-alt"></i>
             </button>
             <button (click)="eliminar(estudiante._id)" type="button" class="btn btn-danger">

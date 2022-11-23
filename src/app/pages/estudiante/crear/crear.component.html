@@ -1,1 +1,41 @@
-<p>crear works!</p>
+<div class="container">
+    
+    <div class="row">
+      <div class="col">
+        <b *ngIf="modoCreacion" > CREAR ESTUDIANTE </b>
+        <b *ngIf="!modoCreacion" > MODIFICAR ESTUDIANTE </b>
+    </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">Cedula:</div>
+        <div class="col">
+            <input [(ngModel)]="infoEstudiante.cedula" [disabled]="!modoCreacion" class="form-control" type="text" placeholder="{{infoEstudiante.cedula}}">
+            <p *ngIf="intentoEnvio" style="color:#F20505"> Campo Obligatorio</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">Nombre:</div>
+        <div class="col">
+            <input [(ngModel)]="infoEstudiante.nombre" class="form-control" type="text" placeholder="{{infoEstudiante.nombre}}">
+            <p *ngIf="intentoEnvio" style="color:#F20505"> Campo Obligatorio</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">Apellido:</div>
+        <div class="col">
+            <input [(ngModel)]="infoEstudiante.apellido" class="form-control" type="text" placeholder="{{infoEstudiante.apellido}}">
+            <p *ngIf="intentoEnvio" style="color:#F20505"> Campo Obligatorio</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <button (click)="crearEstudiante()" *ngIf="modoCreacion" type="button" class="btn btn-success">Crear Estudiante</button>
+            <button (click)="actualizarEstudiante()" *ngIf="!modoCreacion" type="button" class="btn btn-warning">Modificar Estudiante</button>
+        </div>
+    </div>
+
+</div>
