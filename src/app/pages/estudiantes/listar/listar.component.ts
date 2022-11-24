@@ -33,6 +33,10 @@ export class ListarComponent implements OnInit {
     this.router.navigateByUrl("pages/estudiantes/actualizar/"+idEstudiante);
   }
 
+  crearEstudiante() {
+    this.router.navigateByUrl("pages/estudiantes/crear");
+  }
+
   eliminarEstudiante(idEstudiante: string) {
     Swal.fire({
       title: 'Eliminar Estudiante',

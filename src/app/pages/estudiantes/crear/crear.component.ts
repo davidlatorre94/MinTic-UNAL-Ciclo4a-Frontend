@@ -13,8 +13,8 @@ import { EstudianteService } from '../../../servicios/estudiante.service';
 export class CrearComponent implements OnInit {
 
   modoCreacion: boolean = true;
+  intentoEnvio: boolean = false;
   infoEstudiante: Estudiante = {
-    _id: "",
     cedula: "",
     nombre: "",
     apellido: ""
@@ -43,8 +43,29 @@ export class CrearComponent implements OnInit {
       );
   }
 
+  crearEstudiante() {
+    let camposValidos = this.validarCampos();
+    if(camposValidos) {
+      this.miServicioEstudiante.crearEstudiante(this.infoEstudiante)
+      .subscribe(
+        data => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Estudiante Creado!',
+            showConfirmButton: true,
+          })
+          this.router.navigateByUrl("pages/estudiantes/listar");
+        }
+      );
+    }    
+  }
+
   modificarEstudiante() {
-    this.miServicioEstudiante.modificarEstudiante(this.infoEstudiante)
+
+    let camposValidos = this.validarCampos();
+    
+    if (camposValidos) {
+      this.miServicioEstudiante.modificarEstudiante(this.infoEstudiante)
       .subscribe(
         data => {
           Swal.fire({
@@ -56,6 +77,19 @@ export class CrearComponent implements OnInit {
           this.router.navigateByUrl("pages/estudiantes/listar");
         }
       );
+    }
+    
   }
+
+  validarCampos() {
+    this.intentoEnvio = true;
+    if(this.infoEstudiante.cedula == "" || this.infoEstudiante.nombre == ""
+      || this.infoEstudiante.apellido == "" ) {
+        return false; 
+    } else {
+      return true;
+    }
+  }
+
 
 }

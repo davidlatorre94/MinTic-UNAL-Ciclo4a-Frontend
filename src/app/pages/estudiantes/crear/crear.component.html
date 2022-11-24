@@ -11,6 +11,7 @@
         <div class="col">Cedula:</div>
         <div class="col">
             <input [disabled]="!modoCreacion" [(ngModel)]="infoEstudiante.cedula" class="form-control" type="text" placeholder="{{infoEstudiante.cedula}}">
+            <p *ngIf="intentoEnvio" style="color:#B23000"> Requerido </p>
         </div>
     </div>
     <br>
@@ -18,6 +19,7 @@
         <div class="col">Nombre:</div>
         <div class="col">
             <input [(ngModel)]="infoEstudiante.nombre" class="form-control" type="text" placeholder="{{infoEstudiante.nombre}}">
+            <p *ngIf="intentoEnvio" style="color:#B23000"> Requerido </p>
         </div>
         
     </div>
@@ -26,12 +28,13 @@
         <div class="col">Apellido:</div>
         <div class="col">
             <input [(ngModel)]="infoEstudiante.apellido" class="form-control" type="text" placeholder="{{infoEstudiante.apellido}}">
+            <p *ngIf="intentoEnvio" style="color:#B23000"> Requerido </p>
         </div>
     </div>
     <br>
     <div class="row">
         <div class="col">
-            <button *ngIf="modoCreacion" type="button" class="btn btn-success">Crear</button>
+            <button (click)="crearEstudiante()" *ngIf="modoCreacion" type="button" class="btn btn-success">Crear</button>
             <button (click)="modificarEstudiante()" *ngIf="!modoCreacion" type="button" class="btn btn-warning">Modificar</button>
         </div>
     </div>
